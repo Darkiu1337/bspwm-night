@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Bspwm
+Comment=Archcraft Bspwm
+Exec=bspwm
+TryExec=/usr/bin/bspwm
+Type=Application
+Keywords=wm;tiling;

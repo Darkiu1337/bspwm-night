@@ -1,0 +1,14 @@
+## Copyright (C) 2020-2026 Aditya Shakya <adi1090x@gmail.com>
+
+Net/ThemeName "Arc-Night"
+Net/IconThemeName "Papirus-Dark"
+Gtk/CursorThemeName "Qogirr"
+Gtk/FontName "SF Pro Text Medium 11"
+Gtk/MonospaceFontName "SF Mono Medium 11"
+Net/EnableEventSounds "0"
+Net/EnableInputFeedbackSounds "0"
+Xft/DPI -1
+Xft/Hinting 1
+Xft/HintStyle "hintslight"
+Xft/Antialias 1
+Xft/RGBA "none"

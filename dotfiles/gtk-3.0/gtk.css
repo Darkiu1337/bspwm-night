@@ -1,0 +1,48 @@
+/* Palette overrides for Arc-Dark to match the bspwm rice */
+@define-color theme_bg_color #10131A;
+@define-color theme_fg_color #E8EDF4;
+@define-color theme_base_color #1A1F29;
+@define-color theme_text_color #E8EDF4;
+@define-color theme_selected_bg_color rgba(61,139,255,0.35);
+@define-color theme_selected_fg_color #FFFFFF;
+@define-color theme_unfocused_bg_color #10131A;
+@define-color theme_unfocused_fg_color #7C8AA0;
+@define-color theme_unfocused_base_color #1A1F29;
+@define-color theme_unfocused_text_color #E8EDF4;
+
+@define-color bg_color #10131A;
+@define-color fg_color #E8EDF4;
+@define-color base_color #1A1F29;
+@define-color text_color #E8EDF4;
+@define-color selected_bg_color rgba(61,139,255,0.35);
+@define-color selected_fg_color #FFFFFF;
+@define-color insensitive_bg_color #1A1F29;
+@define-color insensitive_fg_color #7C8AA0;
+@define-color insensitive_base_color #1A1F29;
+@define-color borders #2A3240;
+@define-color unfocused_borders #2A3240;
+@define-color warning_color #FFB020;
+@define-color error_color #FF4D5E;
+@define-color success_color #22D67A;
+@define-color link_color #3D8BFF;
+@define-color content_view_bg #1A1F29;
+@define-color text_view_bg #1A1F29;
+@define-color placeholder_text_color #7C8AA0;
+
+@define-color wm_bg #10131A;
+@define-color wm_bg_unfocused #10131A;
+@define-color wm_border #2A3240;
+@define-color wm_title #E8EDF4;
+@define-color wm_unfocused_title #7C8AA0;
+@define-color wm_highlight #202634;
+@define-color wm_shadow #000000;
+@define-color wm_button_hover_bg #1A1F29;
+@define-color wm_button_hover_border #2A3240;
+@define-color wm_button_active_bg #3D8BFF;
+@define-color wm_icon_bg #1A1F29;
+@define-color wm_icon_unfocused_bg #10131A;
+@define-color wm_icon_hover_bg #2A3240;
+@define-color wm_icon_active_bg #3D8BFF;
+
+/* force translucent selection */
+*:selected { background-color: rgba(61,139,255,0.35) !important; background-image: none !important; color: #FFFFFF !important; }

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Menu de rede
+Comment=Gerenciar conexões de rede
+Exec=/home/duzk/.config/bspwm/scripts/network_menu
+Type=Application
+Icon=network-wireless
+Terminal=false
+Categories=Network;System;

@@ -1,0 +1,58 @@
+# Arch repository packages
+bspwm
+sxhkd
+polybar
+rofi
+dunst
+picom
+xsettingsd
+hsetroot
+pulsemixer
+pastel
+xorg-xsetroot
+xorg-xrandr
+xdotool
+xclip
+maim
+acpi
+bc
+viewnior
+thunar
+geany
+mpd
+mpc
+playerctl
+xfce4-power-manager
+bluez-utils
+upower
+ffmpeg
+kitty
+xorg-server-xephyr
+wmname
+yad
+xcolor
+networkmanager
+python-gobject
+papirus-icon-theme
+kvantum
+kvantum-qt5
+
+# AUR
+light
+python-pywal
+ksuperkey
+xfce-polkit
+betterlockscreen
+apple-fonts
+
+# Archcraft asset packages (build from github.com/archcraft-os or use their repo)
+archcraft-fonts
+archcraft-backgrounds
+archcraft-cursor-qogirr
+
+# Notes
+# - networkmanager-dmenu is bundled in scripts/networkmanager_dmenu,
+#   so the AUR package is not required; python-gobject is.
+# - apple-fonts provides SF Pro / SF Mono (proprietary Apple fonts).
+# - archcraft-fonts provides Iosevka, Symbols Nerd Font, JetBrains Mono
+#   and the archcraft/waffle icon fonts used by polybar and dunst.
