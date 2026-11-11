@@ -1,0 +1,80 @@
+#!/usr/bin/env bash
+
+## Toggle passwordless sudo for the current user from the polybar module.
+## Used when working with agent sessions that need root without a prompt.
+
+DIR="$HOME/.config/bspwm"
+SUDOERS_FILE="/etc/sudoers.d/99-$USER-nopasswd"
+ICON_OFF=$(printf '\xef\x80\xa3')   # nf-fa-lock
+ICON_ON=$(printf '\xef\x82\x9c')    # nf-fa-unlock (U+F09C)
+C_ON="#22D67A"   # theme GREEN
+C_OFF="#FF4D5E"
+
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
+export SUDO_ASKPASS="$DIR/scripts/rofi_askpass"
+
+is_on() { sudo -n true 2>/dev/null; }
+
+notify() {
+    command -v notify-send >/dev/null 2>&1 && \
+        notify-send -a "sudo" -i dialog-password "sudo sem senha" "$1"
+}
+
+status() {
+    if is_on; then
+        printf '%%{F%s}%s%%{F-}' "$C_ON" "$ICON_ON"
+    else
+        printf '%%{F%s}%s%%{F-}' "$C_OFF" "$ICON_OFF"
+    fi
+}
+
+enable() {
+    local tmp rc
+    tmp="$(mktemp /tmp/sudoers.XXXXXX)" || return 1
+    printf '%s ALL=(ALL) NOPASSWD: ALL\n' "$USER" > "$tmp"
+    chmod 0440 "$tmp"
+
+    # Never install a file that would break sudo for every command.
+    if ! visudo -cf "$tmp" >/dev/null 2>&1; then
+        rm -f "$tmp"
+        notify "FALHOU: regra sudoers inválida, nada foi alterado"
+        return 1
+    fi
+
+    # One password prompt here, through the rice's rofi askpass.
+    sudo -A install -m 0440 -o root -g root "$tmp" "$SUDOERS_FILE"
+    rc=$?
+    rm -f "$tmp"
+    if [ $rc -ne 0 ]; then
+        notify "cancelado"
+        return $rc
+    fi
+
+    if is_on; then
+        notify "ativado — sudo não pede senha"
+        return 0
+    fi
+    notify "FALHOU: arquivo instalado, mas sudo ainda pede senha"
+    return 1
+}
+
+disable() {
+    sudo -n rm -f "$SUDOERS_FILE" || { notify "FALHOU ao remover a regra"; return 1; }
+    sudo -k 2>/dev/null   # drop cached credentials so status reads the truth
+    if is_on; then
+        notify "FALHOU: sudo continua sem senha"
+        return 1
+    fi
+    notify "desativado — sudo volta a pedir senha"
+    return 0
+}
+
+case "${1:-status}" in
+    status) status ;;
+    toggle)
+        if is_on; then disable; else enable; fi
+        ;;
+    on)  is_on || enable ;;
+    off) is_on && disable ;;
+    *)  echo "usage: ${0##*/} {status|toggle|on|off}" >&2; exit 2 ;;
+esac
