@@ -20,6 +20,8 @@ mkdir -p "$HOME/.config/gtk-3.0" "$HOME/.config/gtk-4.0"
 cp -a "$ROOT/dotfiles/gtk-3.0/." "$HOME/.config/gtk-3.0/"
 cp -a "$ROOT/dotfiles/gtk-4.0/." "$HOME/.config/gtk-4.0/"
 cp -a "$ROOT/dotfiles/Xresources" "$HOME/.Xresources"
+cp -a "$ROOT/dotfiles/xdg-terminals.list" "$HOME/.config/xdg-terminals.list"
+ln -sfn "$HOME/.config/bspwm/kitty" "$HOME/.config/kitty"
 cp -a "$ROOT/dotfiles/applications/network-menu.desktop" "$HOME/.local/share/applications/"
 
 log "Installing themes"

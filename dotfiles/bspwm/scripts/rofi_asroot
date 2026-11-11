@@ -10,12 +10,12 @@ RASI="$DIR/themes/$STYLE/rofi/asroot.rasi"
 # Theme Elements
 prompt='Root'
 mesg="Executar aplicativos como root"
-term='alacritty --class alacritty-float,alacritty-float --config-file /root/.config/bspwm/alacritty/alacritty.toml'
+term='kitty --class kitty-float'
 
 # Options
 layout=`cat ${RASI} | grep 'USE_ICON' | cut -d'=' -f2`
 if [[ "$layout" == 'NO' ]]; then
-	option_1=" Alacritty"
+	option_1=" Kitty"
 	option_2=" Thunar"
 	option_3=" Geany"
 	option_4=" Ranger"

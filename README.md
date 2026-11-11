@@ -9,7 +9,7 @@ terminal, GTK and Qt applications.
 - **WM:** bspwm + sxhkd, Archcraft layout, Roman-numeral dynamic workspaces
 - **Bar:** polybar, pt-BR modules, `|` separators
 - **Launcher/menus:** rofi, translated to pt-BR
-- **Terminal:** alacritty / kitty, SF Mono Medium
+- **Terminal:** kitty (default), SF Mono Medium; alacritty still themed
 
 ## Palette
 
@@ -59,6 +59,26 @@ See `packages.txt`. The short version:
 
 `apple-fonts` is required for SF Pro / SF Mono. It is an AUR package built from
 Apple's DMGs; the fonts are Apple's proprietary property.
+
+## Polkit agent (pt-BR, compact)
+
+Upstream `xfce-polkit` has no translations and opens a wide dialog. The
+`packages/xfce-polkit` folder ships a patched source tarball plus PKGBUILD that:
+
+- translates the dialog (Autenticação necessária, _Permitir, _Negar,
+  Identidade, Falhou. Senha incorreta?)
+- constrains it to 400 px wide, with a single-line ellipsized action message
+  (full text in the tooltip) and tighter grid spacing
+
+Build and install on Arch:
+
+```bash
+cd packages/xfce-polkit
+makepkg -f
+sudo pacman -U xfce-polkit-0.3.3-1-x86_64.pkg.tar.zst
+```
+
+It replaces the repository `xfce-polkit` (same package name, higher version).
 
 ## After install
 

@@ -4,9 +4,9 @@ All bindings live in `dotfiles/bspwm/sxhkdrc`.
 
 | Keys | Action |
 |---|---|
-| Super+Return | Alacritty |
-| Super+Shift+Return | Alacritty floating |
-| Super+Alt+Return | Alacritty fullscreen |
+| Super+Return | Kitty |
+| Super+Shift+Return | Kitty floating |
+| Super+Alt+Return | Kitty fullscreen |
 | Ctrl+Alt+T | Kitty |
 | Alt+F1 / Super | rofi launcher |
 | Alt+F2 | rofi runner |

@@ -1,0 +1,22 @@
+pkgname=xfce-polkit
+pkgver=0.3.3
+pkgrel=1
+pkgdesc="PolicyKit authentication agent for Xfce (pt-BR strings, compact dialog)"
+arch=('x86_64')
+url="https://github.com/ncopa/xfce-polkit"
+license=('GPL2')
+depends=('gtk3' 'libxfce4ui' 'polkit')
+makedepends=('meson' 'ninja')
+source=("xfce-polkit-0.3.0-ptbr.tar.gz")
+sha256sums=('deff152d1e8e53b70f264c3fc8b938a6587cf8b5a9162877ebcf87fcf920020e')
+
+build() {
+  cd "$srcdir/xfce-polkit-0.3.0"
+  arch-meson build --prefix=/usr --libexecdir=lib/xfce-polkit --sysconfdir=/etc
+  ninja -C build
+}
+
+package() {
+  cd "$srcdir/xfce-polkit-0.3.0"
+  DESTDIR="$pkgdir" ninja -C build install
+}

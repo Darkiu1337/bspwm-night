@@ -131,6 +131,7 @@ SUPPORTED_LAUNCHERS = [
 ]
 # List of common terminals
 COMMON_TERMINALS = [
+    "kitty",
     "alacritty",
     "foot",
     "footclient",

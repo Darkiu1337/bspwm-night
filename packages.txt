@@ -54,5 +54,6 @@ archcraft-cursor-qogirr
 # - networkmanager-dmenu is bundled in scripts/networkmanager_dmenu,
 #   so the AUR package is not required; python-gobject is.
 # - apple-fonts provides SF Pro / SF Mono (proprietary Apple fonts).
+# - meson and ninja are only needed to build the patched xfce-polkit package.
 # - archcraft-fonts provides Iosevka, Symbols Nerd Font, JetBrains Mono
 #   and the archcraft/waffle icon fonts used by polybar and dunst.
